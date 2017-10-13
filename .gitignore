@@ -1,0 +1,10 @@
+
+test/
+
+train/
+
+data/
+
+\.ipynb_checkpoints/
+
+*.tsv
