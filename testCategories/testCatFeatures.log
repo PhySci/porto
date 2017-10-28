@@ -1,0 +1,345 @@
+2017-10-27 21:52:47,292 Features [0, 1]
+2017-10-27 21:57:04,768 Fold: 0, tree amount: 310, score: 0.631100
+2017-10-27 22:01:26,380 Fold: 1, tree amount: 320, score: 0.642725
+2017-10-27 22:07:38,654 Fold: 2, tree amount: 455, score: 0.642594
+2017-10-27 22:11:44,098 Fold: 3, tree amount: 304, score: 0.642618
+2017-10-27 22:15:30,976 Fold: 4, tree amount: 282, score: 0.642899
+2017-10-27 22:15:31,106 Iteration: (0, 1). Score: 0.640348
+2017-10-27 22:15:31,106 Features [0, 2]
+2017-10-27 22:20:53,494 Fold: 0, tree amount: 410, score: 0.630872
+2017-10-27 22:24:50,668 Fold: 1, tree amount: 297, score: 0.641831
+2017-10-27 22:29:34,265 Fold: 2, tree amount: 354, score: 0.641070
+2017-10-27 22:35:47,018 Fold: 3, tree amount: 458, score: 0.644853
+2017-10-27 22:39:10,321 Fold: 4, tree amount: 243, score: 0.641369
+2017-10-27 22:39:10,440 Iteration: (0, 2). Score: 0.639931
+2017-10-27 22:39:10,441 Features [0, 3]
+2017-10-27 22:42:33,925 Fold: 0, tree amount: 250, score: 0.629907
+2017-10-27 22:47:51,615 Fold: 1, tree amount: 401, score: 0.644092
+2017-10-27 22:52:11,336 Fold: 2, tree amount: 320, score: 0.641288
+2017-10-27 22:56:01,911 Fold: 3, tree amount: 291, score: 0.642350
+2017-10-27 23:00:33,450 Fold: 4, tree amount: 352, score: 0.643257
+2017-10-27 23:00:33,569 Iteration: (0, 3). Score: 0.640178
+2017-10-27 23:00:33,569 Features [0, 4]
+2017-10-27 23:06:17,561 Fold: 0, tree amount: 447, score: 0.631338
+2017-10-27 23:09:37,737 Fold: 1, tree amount: 259, score: 0.642977
+2017-10-27 23:13:47,192 Fold: 2, tree amount: 313, score: 0.641559
+2017-10-27 23:18:18,129 Fold: 3, tree amount: 345, score: 0.643390
+2017-10-27 23:22:45,143 Fold: 4, tree amount: 343, score: 0.642642
+2017-10-27 23:22:45,251 Iteration: (0, 4). Score: 0.640289
+2017-10-27 23:22:45,252 Features [0, 5]
+2017-10-27 23:25:36,625 Fold: 0, tree amount: 219, score: 0.630031
+2017-10-27 23:31:47,833 Fold: 1, tree amount: 457, score: 0.644640
+2017-10-27 23:36:24,206 Fold: 2, tree amount: 337, score: 0.640810
+2017-10-27 23:40:51,912 Fold: 3, tree amount: 341, score: 0.643124
+2017-10-27 23:44:44,479 Fold: 4, tree amount: 301, score: 0.643560
+2017-10-27 23:44:44,591 Iteration: (0, 5). Score: 0.640465
+2017-10-27 23:44:44,591 Features [0, 6]
+2017-10-27 23:50:31,713 Fold: 0, tree amount: 454, score: 0.631748
+2017-10-27 23:55:32,449 Fold: 1, tree amount: 391, score: 0.642504
+2017-10-27 23:59:35,692 Fold: 2, tree amount: 312, score: 0.642189
+2017-10-28 00:05:04,417 Fold: 3, tree amount: 427, score: 0.644087
+2017-10-28 00:08:37,552 Fold: 4, tree amount: 270, score: 0.642341
+2017-10-28 00:08:37,666 Iteration: (0, 6). Score: 0.640494
+2017-10-28 00:08:37,666 Features [0, 7]
+2017-10-28 00:13:05,209 Fold: 0, tree amount: 345, score: 0.631633
+2017-10-28 00:17:31,158 Fold: 1, tree amount: 344, score: 0.642754
+2017-10-28 00:22:22,419 Fold: 2, tree amount: 380, score: 0.642757
+2017-10-28 00:26:23,347 Fold: 3, tree amount: 306, score: 0.643278
+2017-10-28 00:29:12,716 Fold: 4, tree amount: 214, score: 0.642113
+2017-10-28 00:29:12,829 Iteration: (0, 7). Score: 0.640443
+2017-10-28 00:29:12,830 Features [0, 8]
+2017-10-28 00:33:02,067 Fold: 0, tree amount: 297, score: 0.631394
+2017-10-28 00:37:31,674 Fold: 1, tree amount: 351, score: 0.642951
+2017-10-28 00:42:12,868 Fold: 2, tree amount: 373, score: 0.642290
+2017-10-28 00:47:25,063 Fold: 3, tree amount: 410, score: 0.644401
+2017-10-28 00:50:43,496 Fold: 4, tree amount: 257, score: 0.642099
+2017-10-28 00:50:43,603 Iteration: (0, 8). Score: 0.640604
+2017-10-28 00:50:43,603 Features [0, 9]
+2017-10-28 00:56:09,080 Fold: 0, tree amount: 435, score: 0.630835
+2017-10-28 01:00:05,136 Fold: 1, tree amount: 305, score: 0.641887
+2017-10-28 01:05:31,532 Fold: 2, tree amount: 434, score: 0.641679
+2017-10-28 01:10:10,308 Fold: 3, tree amount: 368, score: 0.643606
+2017-10-28 01:14:45,405 Fold: 4, tree amount: 364, score: 0.641861
+2017-10-28 01:14:45,520 Iteration: (0, 9). Score: 0.639911
+2017-10-28 01:14:45,520 Features [0, 10]
+2017-10-28 01:19:22,998 Fold: 0, tree amount: 367, score: 0.631729
+2017-10-28 01:23:36,403 Fold: 1, tree amount: 334, score: 0.642842
+2017-10-28 01:29:05,594 Fold: 2, tree amount: 436, score: 0.642173
+2017-10-28 01:33:36,017 Fold: 3, tree amount: 360, score: 0.644291
+2017-10-28 01:36:45,128 Fold: 4, tree amount: 247, score: 0.641878
+2017-10-28 01:36:45,240 Iteration: (0, 10). Score: 0.640545
+2017-10-28 01:36:45,240 Features [0, 11]
+2017-10-28 01:41:30,316 Fold: 0, tree amount: 375, score: 0.630271
+2017-10-28 01:46:30,904 Fold: 1, tree amount: 398, score: 0.643767
+2017-10-28 01:50:40,754 Fold: 2, tree amount: 322, score: 0.642640
+2017-10-28 01:54:46,126 Fold: 3, tree amount: 322, score: 0.642993
+2017-10-28 01:58:08,444 Fold: 4, tree amount: 265, score: 0.641731
+2017-10-28 01:58:08,555 Iteration: (0, 11). Score: 0.640209
+2017-10-28 01:58:08,555 Features [0, 12]
+2017-10-28 02:01:12,260 Fold: 0, tree amount: 233, score: 0.629752
+2017-10-28 02:05:10,212 Fold: 1, tree amount: 310, score: 0.643728
+2017-10-28 02:11:05,130 Fold: 2, tree amount: 470, score: 0.642698
+2017-10-28 02:15:04,196 Fold: 3, tree amount: 312, score: 0.643265
+2017-10-28 02:18:26,819 Fold: 4, tree amount: 267, score: 0.642489
+2017-10-28 02:18:26,935 Iteration: (0, 12). Score: 0.640392
+2017-10-28 02:18:26,935 Features [0, 16]
+2017-10-28 02:23:08,995 Fold: 0, tree amount: 377, score: 0.631605
+2017-10-28 02:27:57,377 Fold: 1, tree amount: 381, score: 0.643540
+2017-10-28 02:33:08,181 Fold: 2, tree amount: 413, score: 0.642827
+2017-10-28 02:37:55,317 Fold: 3, tree amount: 376, score: 0.644252
+2017-10-28 02:41:46,039 Fold: 4, tree amount: 302, score: 0.643375
+2017-10-28 02:41:46,152 Iteration: (0, 16). Score: 0.641085
+2017-10-28 02:41:46,152 Features [0, 17]
+2017-10-28 02:47:05,441 Fold: 0, tree amount: 421, score: 0.631513
+2017-10-28 02:51:21,561 Fold: 1, tree amount: 336, score: 0.643057
+2017-10-28 02:56:25,630 Fold: 2, tree amount: 394, score: 0.642675
+2017-10-28 03:00:59,821 Fold: 3, tree amount: 359, score: 0.643194
+2017-10-28 03:04:14,748 Fold: 4, tree amount: 249, score: 0.642205
+2017-10-28 03:04:14,860 Iteration: (0, 17). Score: 0.640443
+2017-10-28 03:04:14,861 Features [0, 18]
+2017-10-28 03:09:30,208 Fold: 0, tree amount: 418, score: 0.631375
+2017-10-28 03:13:34,051 Fold: 1, tree amount: 319, score: 0.642678
+2017-10-28 03:18:14,749 Fold: 2, tree amount: 368, score: 0.643014
+2017-10-28 03:23:01,093 Fold: 3, tree amount: 381, score: 0.643496
+2017-10-28 03:26:13,110 Fold: 4, tree amount: 250, score: 0.641834
+2017-10-28 03:26:13,218 Iteration: (0, 18). Score: 0.640419
+2017-10-28 03:26:13,218 Features [0, 19]
+2017-10-28 03:30:09,769 Fold: 0, tree amount: 308, score: 0.630668
+2017-10-28 03:36:34,679 Fold: 1, tree amount: 513, score: 0.644030
+2017-10-28 03:41:34,923 Fold: 2, tree amount: 394, score: 0.641429
+2017-10-28 03:46:06,459 Fold: 3, tree amount: 353, score: 0.643420
+2017-10-28 03:49:25,362 Fold: 4, tree amount: 258, score: 0.642171
+2017-10-28 03:49:25,474 Iteration: (0, 19). Score: 0.640325
+2017-10-28 03:49:25,474 Features [0, 20]
+2017-10-28 03:52:59,569 Fold: 0, tree amount: 281, score: 0.629939
+2017-10-28 03:58:05,822 Fold: 1, tree amount: 410, score: 0.644029
+2017-10-28 04:02:38,396 Fold: 2, tree amount: 357, score: 0.642187
+2017-10-28 04:07:59,082 Fold: 3, tree amount: 427, score: 0.644996
+2017-10-28 04:11:33,098 Fold: 4, tree amount: 279, score: 0.642905
+2017-10-28 04:11:33,207 Iteration: (0, 20). Score: 0.640823
+2017-10-28 04:11:33,207 Features [0, 21]
+2017-10-28 04:16:34,676 Fold: 0, tree amount: 400, score: 0.632085
+2017-10-28 04:21:43,590 Fold: 1, tree amount: 410, score: 0.643986
+2017-10-28 04:28:16,484 Fold: 2, tree amount: 529, score: 0.642758
+2017-10-28 04:33:52,256 Fold: 3, tree amount: 445, score: 0.644493
+2017-10-28 04:36:30,417 Fold: 4, tree amount: 203, score: 0.641493
+2017-10-28 04:36:30,528 Iteration: (0, 21). Score: 0.640901
+2017-10-28 04:36:30,528 Features [0, 22]
+2017-10-28 04:40:28,295 Fold: 0, tree amount: 305, score: 0.630456
+2017-10-28 04:44:13,746 Fold: 1, tree amount: 294, score: 0.643266
+2017-10-28 04:48:45,462 Fold: 2, tree amount: 355, score: 0.641579
+2017-10-28 04:52:27,033 Fold: 3, tree amount: 287, score: 0.643605
+2017-10-28 04:56:09,217 Fold: 4, tree amount: 286, score: 0.643179
+2017-10-28 04:56:09,326 Iteration: (0, 22). Score: 0.640365
+2017-10-28 04:56:09,326 Features [0, 23]
+2017-10-28 05:00:20,722 Fold: 0, tree amount: 327, score: 0.630812
+2017-10-28 05:04:19,121 Fold: 1, tree amount: 310, score: 0.643112
+2017-10-28 05:08:18,995 Fold: 2, tree amount: 313, score: 0.641183
+2017-10-28 05:12:58,577 Fold: 3, tree amount: 367, score: 0.643455
+2017-10-28 05:16:53,165 Fold: 4, tree amount: 307, score: 0.641255
+2017-10-28 05:16:53,271 Iteration: (0, 23). Score: 0.639927
+2017-10-28 05:16:53,271 Features [0, 24]
+2017-10-28 05:21:31,938 Fold: 0, tree amount: 365, score: 0.631685
+2017-10-28 05:26:11,060 Fold: 1, tree amount: 370, score: 0.643885
+2017-10-28 05:31:04,065 Fold: 2, tree amount: 389, score: 0.642871
+2017-10-28 05:34:54,606 Fold: 3, tree amount: 302, score: 0.643122
+2017-10-28 05:39:05,429 Fold: 4, tree amount: 325, score: 0.642196
+2017-10-28 05:39:05,540 Iteration: (0, 24). Score: 0.640707
+2017-10-28 05:39:05,540 Features [0, 25]
+2017-10-28 05:43:48,769 Fold: 0, tree amount: 371, score: 0.630892
+2017-10-28 05:47:58,500 Fold: 1, tree amount: 325, score: 0.642392
+2017-10-28 05:53:28,114 Fold: 2, tree amount: 434, score: 0.641894
+2017-10-28 05:57:22,887 Fold: 3, tree amount: 305, score: 0.642767
+2017-10-28 05:59:52,978 Fold: 4, tree amount: 188, score: 0.641907
+2017-10-28 05:59:53,089 Iteration: (0, 25). Score: 0.639880
+2017-10-28 05:59:53,090 Features [0, 27]
+2017-10-28 06:04:17,379 Fold: 0, tree amount: 348, score: 0.631665
+2017-10-28 06:09:04,876 Fold: 1, tree amount: 373, score: 0.643265
+2017-10-28 06:13:29,445 Fold: 2, tree amount: 349, score: 0.641791
+2017-10-28 06:18:36,224 Fold: 3, tree amount: 408, score: 0.643973
+2017-10-28 06:21:14,029 Fold: 4, tree amount: 202, score: 0.641499
+2017-10-28 06:21:14,136 Iteration: (0, 27). Score: 0.640380
+2017-10-28 06:21:14,136 Features [0, 31]
+2017-10-28 06:25:19,854 Fold: 0, tree amount: 323, score: 0.630248
+2017-10-28 06:30:44,814 Fold: 1, tree amount: 433, score: 0.643994
+2017-10-28 06:35:38,669 Fold: 2, tree amount: 392, score: 0.642096
+2017-10-28 06:40:21,859 Fold: 3, tree amount: 372, score: 0.644143
+2017-10-28 06:44:01,912 Fold: 4, tree amount: 282, score: 0.642111
+2017-10-28 06:44:02,025 Iteration: (0, 31). Score: 0.640498
+2017-10-28 06:44:02,025 Features [0, 32]
+2017-10-28 06:48:44,891 Fold: 0, tree amount: 374, score: 0.631635
+2017-10-28 06:53:37,756 Fold: 1, tree amount: 385, score: 0.643600
+2017-10-28 06:57:37,622 Fold: 2, tree amount: 315, score: 0.641715
+2017-10-28 07:02:23,660 Fold: 3, tree amount: 377, score: 0.643011
+2017-10-28 07:05:27,836 Fold: 4, tree amount: 235, score: 0.641528
+2017-10-28 07:05:27,944 Iteration: (0, 32). Score: 0.640240
+2017-10-28 07:05:27,944 Features [1, 2]
+2017-10-28 07:09:05,108 Fold: 0, tree amount: 282, score: 0.631031
+2017-10-28 07:12:40,103 Fold: 1, tree amount: 280, score: 0.642054
+2017-10-28 07:16:56,095 Fold: 2, tree amount: 333, score: 0.640309
+2017-10-28 07:21:43,261 Fold: 3, tree amount: 377, score: 0.643461
+2017-10-28 07:25:14,413 Fold: 4, tree amount: 275, score: 0.641652
+2017-10-28 07:25:14,525 Iteration: (1, 2). Score: 0.639651
+2017-10-28 07:25:14,525 Features [1, 3]
+2017-10-28 07:29:44,541 Fold: 0, tree amount: 357, score: 0.632418
+2017-10-28 07:35:21,813 Fold: 1, tree amount: 443, score: 0.644476
+2017-10-28 07:41:30,789 Fold: 2, tree amount: 483, score: 0.642368
+2017-10-28 07:45:42,837 Fold: 3, tree amount: 325, score: 0.643280
+2017-10-28 07:48:55,451 Fold: 4, tree amount: 251, score: 0.641809
+2017-10-28 07:48:55,562 Iteration: (1, 3). Score: 0.640823
+2017-10-28 07:48:55,562 Features [1, 4]
+2017-10-28 07:52:40,409 Fold: 0, tree amount: 288, score: 0.629770
+2017-10-28 07:56:50,301 Fold: 1, tree amount: 322, score: 0.644012
+2017-10-28 08:02:37,127 Fold: 2, tree amount: 453, score: 0.642732
+2017-10-28 08:06:22,791 Fold: 3, tree amount: 291, score: 0.643610
+2017-10-28 08:10:57,131 Fold: 4, tree amount: 358, score: 0.642316
+2017-10-28 08:10:57,242 Iteration: (1, 4). Score: 0.640456
+2017-10-28 08:10:57,242 Features [1, 5]
+2017-10-28 08:15:12,909 Fold: 0, tree amount: 326, score: 0.631571
+2017-10-28 08:19:43,806 Fold: 1, tree amount: 354, score: 0.642982
+2017-10-28 08:26:15,961 Fold: 2, tree amount: 513, score: 0.643690
+2017-10-28 08:31:45,332 Fold: 3, tree amount: 421, score: 0.643618
+2017-10-28 08:36:06,779 Fold: 4, tree amount: 331, score: 0.642899
+2017-10-28 08:36:06,888 Iteration: (1, 5). Score: 0.640944
+2017-10-28 08:36:06,888 Features [1, 6]
+2017-10-28 08:40:55,244 Fold: 0, tree amount: 368, score: 0.631819
+2017-10-28 08:45:44,647 Fold: 1, tree amount: 368, score: 0.644938
+2017-10-28 08:51:40,200 Fold: 2, tree amount: 461, score: 0.641721
+2017-10-28 08:56:30,980 Fold: 3, tree amount: 369, score: 0.644095
+2017-10-28 09:00:27,432 Fold: 4, tree amount: 305, score: 0.643668
+2017-10-28 09:00:27,547 Iteration: (1, 6). Score: 0.641204
+2017-10-28 09:00:27,547 Features [1, 7]
+2017-10-28 09:04:41,566 Fold: 0, tree amount: 324, score: 0.631047
+2017-10-28 09:08:20,680 Fold: 1, tree amount: 273, score: 0.642262
+2017-10-28 09:13:25,930 Fold: 2, tree amount: 387, score: 0.642188
+2017-10-28 09:17:50,922 Fold: 3, tree amount: 339, score: 0.643973
+2017-10-28 09:21:08,565 Fold: 4, tree amount: 248, score: 0.641904
+2017-10-28 09:21:08,682 Iteration: (1, 7). Score: 0.640223
+2017-10-28 09:21:08,682 Features [1, 8]
+2017-10-28 09:25:32,059 Fold: 0, tree amount: 336, score: 0.631574
+2017-10-28 09:30:14,534 Fold: 1, tree amount: 356, score: 0.643733
+2017-10-28 09:35:30,080 Fold: 2, tree amount: 405, score: 0.642316
+2017-10-28 09:41:13,279 Fold: 3, tree amount: 432, score: 0.644835
+2017-10-28 09:45:08,510 Fold: 4, tree amount: 270, score: 0.642281
+2017-10-28 09:45:08,648 Iteration: (1, 8). Score: 0.640924
+2017-10-28 09:45:08,648 Features [1, 9]
+2017-10-28 09:50:55,900 Fold: 0, tree amount: 436, score: 0.631209
+2017-10-28 09:55:50,205 Fold: 1, tree amount: 370, score: 0.643461
+2017-10-28 10:00:34,862 Fold: 2, tree amount: 357, score: 0.640700
+2017-10-28 10:05:40,664 Fold: 3, tree amount: 384, score: 0.644085
+2017-10-28 10:10:39,332 Fold: 4, tree amount: 377, score: 0.641805
+2017-10-28 10:10:39,449 Iteration: (1, 9). Score: 0.640202
+2017-10-28 10:10:39,449 Features [1, 10]
+2017-10-28 10:15:38,624 Fold: 0, tree amount: 379, score: 0.631634
+2017-10-28 10:19:44,804 Fold: 1, tree amount: 312, score: 0.642680
+2017-10-28 10:24:02,086 Fold: 2, tree amount: 324, score: 0.641493
+2017-10-28 10:29:23,086 Fold: 3, tree amount: 409, score: 0.644127
+2017-10-28 10:34:03,482 Fold: 4, tree amount: 357, score: 0.642935
+2017-10-28 10:34:03,601 Iteration: (1, 10). Score: 0.640518
+2017-10-28 10:34:03,601 Features [1, 11]
+2017-10-28 10:39:34,130 Fold: 0, tree amount: 415, score: 0.631813
+2017-10-28 10:44:30,364 Fold: 1, tree amount: 370, score: 0.643635
+2017-10-28 10:49:47,029 Fold: 2, tree amount: 394, score: 0.642778
+2017-10-28 10:53:11,859 Fold: 3, tree amount: 251, score: 0.643292
+2017-10-28 10:58:03,144 Fold: 4, tree amount: 363, score: 0.643953
+2017-10-28 10:58:03,267 Iteration: (1, 11). Score: 0.641019
+2017-10-28 10:58:03,267 Features [1, 12]
+2017-10-28 11:02:20,809 Fold: 0, tree amount: 324, score: 0.630956
+2017-10-28 11:05:42,712 Fold: 1, tree amount: 221, score: 0.642064
+2017-10-28 11:11:02,219 Fold: 2, tree amount: 327, score: 0.641337
+2017-10-28 11:17:20,988 Fold: 3, tree amount: 364, score: 0.644586
+2017-10-28 11:22:51,128 Fold: 4, tree amount: 311, score: 0.643425
+2017-10-28 11:22:51,272 Iteration: (1, 12). Score: 0.640430
+2017-10-28 11:22:51,272 Features [1, 16]
+2017-10-28 11:28:15,420 Fold: 0, tree amount: 305, score: 0.631164
+2017-10-28 11:35:43,901 Fold: 1, tree amount: 436, score: 0.644502
+2017-10-28 11:42:15,039 Fold: 2, tree amount: 385, score: 0.641604
+2017-10-28 11:48:19,077 Fold: 3, tree amount: 454, score: 0.645068
+2017-10-28 11:51:35,071 Fold: 4, tree amount: 249, score: 0.641936
+2017-10-28 11:51:35,179 Iteration: (1, 16). Score: 0.640852
+2017-10-28 11:51:35,180 Features [1, 17]
+2017-10-28 11:57:30,883 Fold: 0, tree amount: 436, score: 0.631151
+2017-10-28 12:02:20,486 Fold: 1, tree amount: 348, score: 0.644560
+2017-10-28 12:10:03,122 Fold: 2, tree amount: 538, score: 0.642361
+2017-10-28 12:15:19,802 Fold: 3, tree amount: 376, score: 0.644168
+2017-10-28 12:19:21,940 Fold: 4, tree amount: 279, score: 0.641944
+2017-10-28 12:19:22,066 Iteration: (1, 17). Score: 0.640758
+2017-10-28 12:19:22,066 Features [1, 18]
+2017-10-28 12:24:33,876 Fold: 0, tree amount: 365, score: 0.631043
+2017-10-28 12:29:29,648 Fold: 1, tree amount: 334, score: 0.642720
+2017-10-28 12:33:37,658 Fold: 2, tree amount: 289, score: 0.640839
+2017-10-28 12:40:24,577 Fold: 3, tree amount: 508, score: 0.644859
+2017-10-28 12:44:17,931 Fold: 4, tree amount: 280, score: 0.642348
+2017-10-28 12:44:18,048 Iteration: (1, 18). Score: 0.640320
+2017-10-28 12:44:18,048 Features [1, 19]
+2017-10-28 12:49:33,076 Fold: 0, tree amount: 353, score: 0.631303
+2017-10-28 12:55:27,865 Fold: 1, tree amount: 395, score: 0.644552
+2017-10-28 13:02:37,529 Fold: 2, tree amount: 502, score: 0.642750
+2017-10-28 13:06:52,492 Fold: 3, tree amount: 298, score: 0.644063
+2017-10-28 13:10:40,976 Fold: 4, tree amount: 273, score: 0.641701
+2017-10-28 13:10:41,092 Iteration: (1, 19). Score: 0.640821
+2017-10-28 13:10:41,092 Features [1, 20]
+2017-10-28 13:16:42,512 Fold: 0, tree amount: 450, score: 0.631992
+2017-10-28 13:24:37,129 Fold: 1, tree amount: 459, score: 0.644069
+2017-10-28 13:32:38,138 Fold: 2, tree amount: 458, score: 0.642585
+2017-10-28 13:39:32,421 Fold: 3, tree amount: 398, score: 0.644953
+2017-10-28 13:43:43,322 Fold: 4, tree amount: 288, score: 0.642939
+2017-10-28 13:43:43,513 Iteration: (1, 20). Score: 0.641259
+2017-10-28 13:43:43,745 Features [1, 21]
+2017-10-28 13:48:35,558 Fold: 0, tree amount: 351, score: 0.631002
+2017-10-28 13:51:47,061 Fold: 1, tree amount: 233, score: 0.642989
+2017-10-28 13:55:38,528 Fold: 2, tree amount: 293, score: 0.641721
+2017-10-28 14:00:42,069 Fold: 3, tree amount: 386, score: 0.643472
+2017-10-28 14:04:57,972 Fold: 4, tree amount: 325, score: 0.642736
+2017-10-28 14:04:58,097 Iteration: (1, 21). Score: 0.640322
+2017-10-28 14:04:58,097 Features [1, 22]
+2017-10-28 14:10:24,486 Fold: 0, tree amount: 412, score: 0.632551
+2017-10-28 14:14:48,709 Fold: 1, tree amount: 332, score: 0.644101
+2017-10-28 14:19:40,224 Fold: 2, tree amount: 365, score: 0.642832
+2017-10-28 14:24:13,862 Fold: 3, tree amount: 342, score: 0.643653
+2017-10-28 14:29:12,685 Fold: 4, tree amount: 380, score: 0.642582
+2017-10-28 14:29:12,803 Iteration: (1, 22). Score: 0.641080
+2017-10-28 14:29:12,804 Features [1, 23]
+2017-10-28 14:34:01,492 Fold: 0, tree amount: 360, score: 0.632137
+2017-10-28 14:38:21,921 Fold: 1, tree amount: 328, score: 0.644351
+2017-10-28 14:45:17,525 Fold: 2, tree amount: 521, score: 0.642515
+2017-10-28 14:49:47,793 Fold: 3, tree amount: 318, score: 0.642620
+2017-10-28 14:53:08,672 Fold: 4, tree amount: 243, score: 0.640848
+2017-10-28 14:53:08,788 Iteration: (1, 23). Score: 0.640434
+2017-10-28 14:53:08,789 Features [1, 24]
+2017-10-28 14:58:03,046 Fold: 0, tree amount: 380, score: 0.632509
+2017-10-28 15:02:31,127 Fold: 1, tree amount: 348, score: 0.644021
+2017-10-28 15:08:02,246 Fold: 2, tree amount: 427, score: 0.643520
+2017-10-28 15:13:41,349 Fold: 3, tree amount: 425, score: 0.644280
+2017-10-28 15:17:45,234 Fold: 4, tree amount: 292, score: 0.642336
+2017-10-28 15:17:45,361 Iteration: (1, 24). Score: 0.641295
+2017-10-28 15:17:45,361 Features [1, 25]
+2017-10-28 15:22:11,204 Fold: 0, tree amount: 314, score: 0.631214
+2017-10-28 15:26:46,121 Fold: 1, tree amount: 332, score: 0.643772
+2017-10-28 15:32:22,484 Fold: 2, tree amount: 380, score: 0.643089
+2017-10-28 15:36:29,125 Fold: 3, tree amount: 284, score: 0.643630
+2017-10-28 15:40:28,160 Fold: 4, tree amount: 279, score: 0.642457
+2017-10-28 15:40:28,747 Iteration: (1, 25). Score: 0.640792
+2017-10-28 15:40:28,805 Features [1, 27]
+2017-10-28 15:44:50,682 Fold: 0, tree amount: 330, score: 0.631614
+2017-10-28 15:50:57,716 Fold: 1, tree amount: 475, score: 0.644851
+2017-10-28 15:56:47,828 Fold: 2, tree amount: 433, score: 0.642407
+2017-10-28 16:03:01,889 Fold: 3, tree amount: 419, score: 0.644722
+2017-10-28 16:08:15,115 Fold: 4, tree amount: 345, score: 0.642214
+2017-10-28 16:08:15,256 Iteration: (1, 27). Score: 0.641153
+2017-10-28 16:08:15,256 Features [1, 31]
+2017-10-28 16:13:36,672 Fold: 0, tree amount: 343, score: 0.631794
+2017-10-28 16:17:46,503 Fold: 1, tree amount: 294, score: 0.643048
+2017-10-28 16:23:05,256 Fold: 2, tree amount: 382, score: 0.641425
+2017-10-28 16:30:05,511 Fold: 3, tree amount: 512, score: 0.644916
+2017-10-28 16:33:25,991 Fold: 4, tree amount: 236, score: 0.641780
+2017-10-28 16:33:26,111 Iteration: (1, 31). Score: 0.640550
+2017-10-28 16:33:26,112 Features [1, 32]
+2017-10-28 16:37:54,359 Fold: 0, tree amount: 338, score: 0.630698
+2017-10-28 16:42:19,644 Fold: 1, tree amount: 337, score: 0.644133
+2017-10-28 16:47:22,917 Fold: 2, tree amount: 383, score: 0.641457
+2017-10-28 16:52:06,708 Fold: 3, tree amount: 368, score: 0.643650
+2017-10-28 16:57:05,456 Fold: 4, tree amount: 368, score: 0.641951
+2017-10-28 16:57:05,565 Iteration: (1, 32). Score: 0.640357
+2017-10-28 16:57:05,565 Features [2, 3]
+2017-10-28 17:02:11,797 Fold: 0, tree amount: 385, score: 0.631043

@@ -12,13 +12,15 @@ from catboost import Pool, CatBoostClassifier
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import roc_auc_score
 
+import logging
+
 import os
 
 import itertools
 
 
 def trainCatBoost(trainSet, targetSet, params={'depth': 7, 'rate': 0.055, 'l2': 8, 'T': 1.5}, folds=5, maxIter=2000,
-                  verbose=False, cat_features = []):
+                  verbose=False, cat_features=[], logger=[]):
     """
     Split dataset on 5 folds, train and validate model, estimate score.
     :param trainSet: pandas Dataframe
@@ -31,6 +33,7 @@ def trainCatBoost(trainSet, targetSet, params={'depth': 7, 'rate': 0.055, 'l2': 
     :return: AUR-ROC score
     """
 
+    logger.info("Features %s", cat_features)
     # create log directory
     dirName = '/tmp/porto/catboost/testFeatures/'+'-'.join(map(str, cat_features))
 
@@ -53,10 +56,10 @@ def trainCatBoost(trainSet, targetSet, params={'depth': 7, 'rate': 0.055, 'l2': 
                                    train_dir=dirName +"/"+ str(i), random_seed=i)
 
         # create pool
-        trainPool = Pool(trainSet.iloc[train_index], targetSet.iloc[train_index],
+        trainPool = Pool(trainSet.iloc[train_index], targetSet.iloc[train_index], cat_features = cat_features,
                          feature_names=trainSet.columns.tolist())
 
-        valPool = Pool(trainSet.iloc[val_index], targetSet.iloc[val_index],
+        valPool = Pool(trainSet.iloc[val_index], targetSet.iloc[val_index], cat_features = cat_features,
                          feature_names=trainSet.columns.tolist())
 
         # fit and estimate the model
@@ -67,12 +70,11 @@ def trainCatBoost(trainSet, targetSet, params={'depth': 7, 'rate': 0.055, 'l2': 
         treeList.append(model.tree_count_)
         scoreList.append(localScore)
 
-        if verbose:
-            print 'Fold #',i, ', tree amount ', model.tree_count_, ', score is', localScore
-
+        logger.info('Fold: %d, tree amount: %d, score: %f', i, model.tree_count_, localScore)
 
     score = roc_auc_score(targetSet, prob)
-    return [score, treeList, scoreList]
+    #print cat_features, ': ', score
+    return score
 
 
 def getData():
@@ -103,7 +105,7 @@ def getData():
     return [df.drop("target", axis= 1), df.target]
 
 
-def getCatFeatures(df):
+def get_cat_features(df):
     """
     Return list of categorical features
     :param df: Pandas dataframe
@@ -125,16 +127,22 @@ def getCatFeatures(df):
 
 def main():
 
+    # set logging info
+    logging.basicConfig(filename='testCatFeatures.log', format='%(asctime)s %(message)s')
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.DEBUG)
+
     [X, y] = getData()
-    catFeatures = getCatFeatures(X)
-    print catFeatures
+    catFeatures = get_cat_features(X)
 
     resDict = dict()
+
     # loop over features
     for featureIds in itertools.combinations(catFeatures.keys(), 2):
-        [score, _, _] = trainCatBoost(X, y, cat_features= featureIds, verbose= False)
+        score = trainCatBoost(X, y, cat_features= list(featureIds), verbose= False, logger= logger)
         resDict.update({featureIds: score})
         print 'Feature: ',featureIds, '. Score is', score
+        logger.info("Iteration: %s. Score: %f", featureIds, score)
 
     resDf = pd.DataFrame.from_dict(resDict)
     resDf.to_pickle('2features.pcl')
@@ -142,9 +150,10 @@ def main():
     resDict = dict()
     # loop over features
     for featureIds in itertools.combinations(catFeatures.keys(), 3):
-        [score, _, _] = trainCatBoost(X, y, cat_features= featureIds, verbose= False)
+        score = trainCatBoost(X, y, cat_features= list(featureIds), verbose= False, logger= logger)
         resDict.update({featureIds: score})
         print 'Feature: ',featureIds, '. Score is', score
+        logger.info("Iteration: %s. Score: %f", featureIds, score)
 
     resDf = pd.DataFrame.from_dict(resDict)
     resDf.to_pickle('3features.pcl')
