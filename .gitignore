@@ -1,10 +1,11 @@
-
 test/
-
 train/
-
 data/
-
 \.ipynb_checkpoints/
-
 *.tsv
+*.out
+*.csv
+idea/**
+spearmint/*
+**.cbm
+*.cbm
