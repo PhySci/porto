@@ -1,6 +1,7 @@
 test/
 train/
 data/
+submission/
 \.ipynb_checkpoints/
 *.tsv
 *.out

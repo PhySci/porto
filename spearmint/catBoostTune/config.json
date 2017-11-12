@@ -1,21 +1,51 @@
 {
     "language"        : "PYTHON",
-    "main-file"       : "branin.py",
-    "experiment-name" : "simple-braninhoo-example",
+    "main-file"       : "catBoostTune.py",
+    "experiment-name" : "porto-catBoost",
     "likelihood"      : "NOISELESS",
+    "polling-time"    : 1,
+
+    "resources" : {
+        "my-machine" : {
+            "scheduler"         : "local",
+            "max-concurrent"    : 3,
+            "max-finished-jobs" : 100
+        }
+    },
+
+    "tasks": {
+        "catBoostTune" : {
+            "type"       : "OBJECTIVE",
+            "likelihood" : "NOISELESS",
+            "main-file"  : "catBoostTune.py",
+            "resources"  : ["my-machine"]
+        }
+    },
+
     "variables" : {
-        "x" : {
-            "type" : "FLOAT",
+        "depth" : {
+            "type" : "INT",
             "size" : 1,
-            "min"  : -5,
+            "min"  : 5,
             "max"  : 10
         },
-        "y" : {
+        "rate" : {
+            "type" : "FLOAT",
+            "size" : 1,
+            "min"  : 0.01,
+            "max"  : 0.1
+        },
+        "l2": {
+            "type" : "FLOAT",
+            "size" : 1,
+            "min"  : 1,
+            "max"  : 10
+        },
+        "T": {
             "type" : "FLOAT",
             "size" : 1,
             "min"  : 0,
-            "max"  : 15
+            "max"  : 5
         }
     }
 }
-
