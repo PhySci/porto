@@ -10,7 +10,7 @@ class DeepClassifier:
 
     def __init__(self, dae_lr=0.001, nn_lr=0.01, dae_decay=0.99, nn_decay=0.99, L2 = 0.005, batch_size=512,
                  features = 345, dae_hidden = [1500, 1500, 1500], clf_hidden = [1000, 1000],
-                 restart=False, verbose=True, keep_prob=1, name = './DAE_model'):
+                 restart=False, verbose=True, keep_prob=1, name = './model/DAE_model'):
         """
         Create an instance
         :param dae_lr:
@@ -37,7 +37,6 @@ class DeepClassifier:
         self.keep_prob = keep_prob
         self.dae_epoch = 100
         self.clf_epoch = 100
-
 
         self.pth = name
 
@@ -69,13 +68,8 @@ class DeepClassifier:
                 self.saver.save(sess, self.pth)
                 self.logger.debug('Init and save the model')
 
-    def get_auc(self):
-       pass
-
     def get_dae_loss(self, ref_x):
-        #for n in tf.get_default_graph().as_graph_def().node:
-        #   print(n.name)
-        with tf.name_scope('DAE'):
+        with tf.name_scope('dae_loss'):
             x_dae = tf.get_default_graph().get_tensor_by_name("DAE/layer3/output:0")
             loss = tf.reduce_mean(tf.pow(ref_x - x_dae, 2, name='pow2'), name='loss')
         return loss
@@ -86,38 +80,49 @@ class DeepClassifier:
                                              name='dae_optimizer_op'). \
                 minimize(self.dae_loss, var_list=tf.get_collection('DAE'))
 
-    def train_dae(self, X):
+    def train_dae(self, x):
+        """
+        Train Denoising Auto Encoder
+        :param X: dataset
+        :return:
+        """
         noise_list = np.linspace(0.001, 0.1, self.dae_epoch)
-
-        merged = tf.summary.merge_all()
-
         with tf.Session() as sess:
             self.saver.restore(sess, self.pth)
-            train_writer = tf.summary.FileWriter('./train', sess.graph)
+            train_writer = tf.summary.FileWriter('./train/dae', sess.graph)
+
             for epoch in range(self.dae_epoch): #enumerate(noise_list):
+                print('Epoch: {epoch}'.format(epoch=epoch))
                 noise = 0.1
-                l = 0
-                for i in range(np.ceil(X.shape[0] / self.batch_size).astype(int)):
-                    batch, noise_batch = self.get_batch(X, noise_level=noise)
-                    summary, _, t = sess.run([merged, self.dae_optimizer, self.dae_loss],
-                                    feed_dict={self.ref_features:batch,
-                                               self.inp_features: noise_batch,
-                                               self.keep_prob_ph: self.keep_prob})
-                    l += t
-                msg = '{epoch: 3d}: loss is {l: 2.3f}, noise level is {noise: 2.4f}'.format(epoch=epoch, l=l, noise=noise)
-                self.show_msg(msg)
+                loss = list()
+                batch_num = np.ceil(x.shape[0] / self.batch_size).astype(int)
+                for i in range(batch_num):
+                    print('{i}/{n}'.format(i=i, n=batch_num))
+                    batch, noise_batch = self.get_batch(x, noise_level=noise)
+                    noise_l = np.mean(np.abs(batch-noise_batch))
+                    feed_dict = {self.ref_features: batch,
+                                 self.inp_features: noise_batch,
+                                 self.keep_prob_ph: 1}
+                    _, t = sess.run([self.dae_optimizer, self.dae_loss], feed_dict=feed_dict)
+                    loss.append(t)
 
-                train_writer.add_summary(summary, epoch)
+                # add info
+                dae_summary = tf.Summary()
+                dae_summary.value.add(tag='DAE_train/loss_mean', simple_value=np.array(loss).mean())
+                dae_summary.value.add(tag='DAE_train/loss_std', simple_value=np.array(loss).std())
+                dae_summary.value.add(tag='DAE_train/noise', simple_value=noise)
+                dae_summary.value.add(tag='DAE_train/noise_diff', simple_value=noise_l)
 
-                if epoch % 10 ==0:
+                train_writer.add_summary(sess.run(tf.summary.merge_all(), feed_dict=feed_dict), epoch)
+                train_writer.add_summary(dae_summary, epoch)
+                
+                if epoch % 10 == 0:
                     self.logger.debug(self.saver.save(sess, self.pth))
-
-
 
             print(self.saver.save(sess, self.pth))
 
     def get_clf_loss(self, y):
-        with tf.name_scope('clf'):
+        with tf.name_scope('clf_loss'):
             y_pr = tf.get_default_graph().get_tensor_by_name("NN/layer2/output:0")
             loss_sample =  tf.reduce_mean(tf.losses.log_loss(y, y_pr), name='clf_loss')
             loss_reg = tf.nn.l2_loss(tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES))
@@ -134,28 +139,32 @@ class DeepClassifier:
         self.logger.debug('Classifier training')
         merged = tf.summary.merge_all()
         with tf.Session() as sess:
-            train_writer = tf.summary.FileWriter('./train', sess.graph)
+            train_writer = tf.summary.FileWriter('./train/clf', sess.graph)
             if restart:
                 tf.initialize_variables(tf.get_collection('clf'))
             self.saver.restore(sess, self.pth)
             for epoch in range(self.clf_epoch):
-                l = 0
+                loss = []
                 for i in range(np.ceil(X.shape[0] / self.batch_size).astype(int)):
                     batch_x, batch_y = get_train_batch(X, y, batch_size=self.batch_size)
-                    summary, _, t = sess.run([merged, self.clf_optimizer, self.clf_loss],
-                                    feed_dict={self.inp_features: batch_x,
-                                               self.labels:batch_y,
-                                               self.keep_prob_ph: self.keep_prob})
-                    l += t
-                msg = '{epoch: 3d}: {l: 2.3f}'.format(epoch=epoch, l=l)
-                self.show_msg(msg)
+                    feed_dict = {self.inp_features: batch_x,
+                                 self.labels: batch_y,
+                                 self.keep_prob_ph: self.keep_prob}
+                    _, t = sess.run([self.clf_optimizer, self.clf_loss], feed_dict=feed_dict)
+                    loss.append(t)
+                # add info
+                clf_summary = tf.Summary()
+                clf_summary.value.add(tag='clf_train/loss_mean', simple_value=np.array(loss).mean())
+                clf_summary.value.add(tag='clf_train/loss_std', simple_value=np.array(loss).std())
+                clf_summary.value.add(tag='clf_train/keep_prob', simple_value=self.keep_prob)
+                train_writer.add_summary(sess.run(tf.summary.merge_all(), feed_dict=feed_dict), epoch)
+                train_writer.add_summary(clf_summary, epoch)
+
                 if (epoch % 2 ==0) or epoch==(self.clf_epoch-1):
                     y_pr = sess.run(self.graph, feed_dict={self.inp_features: X_val, self.keep_prob_ph: 1})
                     msg = 'ROC-AUC is {v: 2.3f}'.format(v=roc_auc_score(y_val, y_pr))
                     self.show_msg(msg)
                     self.logger.debug(self.saver.save(sess, self.pth))
-
-                train_writer.add_summary(summary, epoch)
 
             print(self.saver.save(sess, self.pth))
 
@@ -165,7 +174,7 @@ class DeepClassifier:
             with tf.name_scope('layer0'):
                 dae_w0 = tf.get_variable(shape=[self.dae_size[0], self.dae_size[1]], name='dae_w0')
                 dae_b0 = tf.get_variable(shape=[self.dae_size[1]], name='dae_b0')
-                dae_layer0 = tf.nn.sigmoid(tf.add(tf.matmul(inp, dae_w0), dae_b0), name='output')
+                dae_layer0 = tf.nn.relu(tf.add(tf.matmul(inp, dae_w0), dae_b0), name='output')
                 tf.add_to_collection("DAE", dae_w0)
                 tf.add_to_collection("DAE", dae_b0)
 
@@ -176,16 +185,24 @@ class DeepClassifier:
             with tf.name_scope('layer1'):
                 dae_w1 = tf.get_variable(shape=[self.dae_size[1], self.dae_size[2]], name='dae_w1')
                 dae_b1 = tf.get_variable(shape=[self.dae_size[2]], name='dae_b1')
-                dae_layer1 = tf.nn.sigmoid(tf.add(tf.matmul(dae_layer0, dae_w1), dae_b1), name='output')
+                dae_layer1 = tf.nn.relu(tf.add(tf.matmul(dae_layer0, dae_w1), dae_b1), name='output')
                 tf.add_to_collection("DAE", dae_w1)
                 tf.add_to_collection("DAE", dae_b1)
+
+                tf.summary.histogram('dae_w1', dae_w1)
+                tf.summary.histogram('dae_b1', dae_b1)
+                tf.summary.histogram('dae_layer1', dae_layer1)
 
             with tf.name_scope('layer2'):
                 dae_w2 = tf.get_variable(shape=[self.dae_size[2], self.dae_size[3]], name='dae_w2')
                 dae_b2 = tf.get_variable(shape=[self.dae_size[3]], name='dae_b2')
-                dae_layer2 = tf.nn.sigmoid(tf.add(tf.matmul(dae_layer1, dae_w2), dae_b2), name='output')
+                dae_layer2 = tf.nn.relu(tf.add(tf.matmul(dae_layer1, dae_w2), dae_b2), name='output')
                 tf.add_to_collection("DAE", dae_w2)
                 tf.add_to_collection("DAE", dae_b2)
+
+                tf.summary.histogram('dae_w2', dae_w2)
+                tf.summary.histogram('dae_b2', dae_b2)
+                tf.summary.histogram('dae_layer2', dae_layer2)
 
             with tf.name_scope('layer3'):
                 dae_w3 = tf.get_variable(shape=[self.dae_size[3], self.dae_size[4]], name='dae_w3')
@@ -193,6 +210,10 @@ class DeepClassifier:
                 dae_layer3 = tf.add(tf.matmul(dae_layer2, dae_w3), dae_b3, name='output')
                 tf.add_to_collection("DAE", dae_w3)
                 tf.add_to_collection("DAE", dae_b3)
+
+                tf.summary.histogram('dae_w3', dae_w3)
+                tf.summary.histogram('dae_b3', dae_b3)
+                tf.summary.histogram('dae_layer3', dae_layer3)
 
         # Define Neural Network Classifier
         with tf.name_scope('NN'):
@@ -206,7 +227,8 @@ class DeepClassifier:
                 tf.add_to_collection("clf", nn_w0)
                 tf.add_to_collection("clf", nn_b0)
                 tf.summary.histogram('nn_w0', nn_w0)
-                tf.summary.histogram('nn_layer0', nn_layer0)
+                tf.summary.histogram('nn_b0', nn_b0)
+                tf.summary.histogram('nn_layer0', a0)
             with tf.name_scope('layer1'):
                 nn_b1 = tf.get_variable(shape=[self.nn_size[2]], name='clf_b1')
                 nn_w1 = tf.get_variable(shape=[self.nn_size[1], self.nn_size[2]], name='clf_w1', regularizer=regularizer)
@@ -214,6 +236,9 @@ class DeepClassifier:
                 nn_layer1 = tf.nn.dropout(a1, keep_prob=self.keep_prob_ph, name='dropout_1')
                 tf.add_to_collection("clf", nn_w1)
                 tf.add_to_collection("clf", nn_b1)
+                tf.summary.histogram('nn_w1', nn_w1)
+                tf.summary.histogram('nn_b1', nn_b1)
+                tf.summary.histogram('nn_layer1', a1)
             with tf.name_scope('layer2'):
                 nn_b2 = tf.get_variable(shape=[self.nn_size[3]], name='clf_b2')
                 nn_w2 = tf.get_variable(shape=[self.nn_size[2], self.nn_size[3]], name='clf_w2', regularizer=regularizer)
@@ -221,6 +246,9 @@ class DeepClassifier:
                 y_pr = tf.nn.dropout(a2, keep_prob=self.keep_prob_ph, name='dropout_2')
                 tf.add_to_collection("clf", nn_w2)
                 tf.add_to_collection("clf", nn_b2)
+                tf.summary.histogram('nn_w2', nn_w2)
+                tf.summary.histogram('nn_b2', nn_b2)
+                tf.summary.histogram('nn_layer2', a2)
         return y_pr
 
     def get_batch(self, features, noise_level = 0.1):
@@ -249,42 +277,6 @@ class DeepClassifier:
 def get_train_batch(X, y, batch_size = 100):
     idx = np.random.randint(0, X.shape[0], batch_size)
     return X.iloc[idx].values, y.iloc[idx].values[:, np.newaxis]
-
-
- #graph = tf.get_default_graph()
-        #x_noise = graph.get_tensor_by_name("x_noise:0")
-        #x_out_op = graph.get_tensor_by_name("DAE/layer4/x_out_op:0")
-
-
-#def get_optimizer(self):
-    #    with tf.name_scope('optimizer'):
-    #        global_step = tf.Variable(0, trainable=False)
-    #        lr = tf.train.exponential_decay(self.learning_rate, global_step, 1, 0.995)
-    #        #, global_step=global_step
-    #        return tf.train.GradientDescentOptimizer(self.learning_rate, name='optimizer_op').\
-    #            minimize(self.loss)
-
-
-    """ 
-    def train(self, features, target):
-        init = tf.global_variables_initializer()
-        with tf.Session() as sess:
-            sess.run(init)
-
-            for epoch in range(self.num_epoch):
-                l = 0
-                for i in range(np.ceil(features.shape[0] / self.batch_size).astype(int)):
-                    batch_x, batch_y = get_train_batch(features, target, self.batch_size)
-                    sess.run(self.optimizer, feed_dict={self.features: batch_x, self.labels: batch_y})
-
-                if epoch % 1 == 0:
-                    l = sess.run(self.loss, feed_dict={self.features: batch_x, self.labels: batch_y})
-                    print('{epoch: 2d}: {loss: 3.2f}'.format(epoch=epoch, loss = l))
-    """
-
-# print(tf.get_collection('DAE'))
-# print(tf.get_collection('clf'))
-# return y_pr
 
 
 
